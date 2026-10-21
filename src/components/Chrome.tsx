@@ -6,17 +6,34 @@ import { PHONE_DISPLAY, waLink } from '../lib/i18n';
 import { EASINGS } from '../lib/easings';
 import { useLockBody } from '../lib/hooks';
 import Icon, { WhatsAppIcon } from './Icon';
-import { Wordmark } from './Header';
 
 export function Footer() {
   const { t } = useStore();
+  const [l1, l2] = t.foot_tag.split('. ');
   return (
-    <footer className="foot">
+    <footer className="foot t-ink">
       <div className="wrap">
+        <div className="foot__cta">
+          <div>
+            <p className="eyebrow">{t.visit_eyebrow}</p>
+            <h3 className="foot__ctatitle">
+              {l1}. <em>{l2}</em>
+            </h3>
+          </div>
+          <div className="foot__ctabtns">
+            <a className="btn btn--dark" href={waLink(t.wa_general)} target="_blank" rel="noreferrer">
+              <WhatsAppIcon size={18} /> {t.visit_wa}
+            </a>
+            <Link to="/shop" className="btn btn--line">
+              {t.hero_cta} <Icon name="arrow" size={18} />
+            </Link>
+          </div>
+        </div>
+
         <div className="foot__top">
           <div className="foot__brand">
-            <img src="/img/logo.webp" alt="UNIQUE Watches & Jewelry" className="foot__logo" loading="lazy" />
-            <p className="foot__tag">{t.foot_tag}</p>
+            <img src="/img/monogram.webp" alt="" className="foot__mono" loading="lazy" />
+            <p className="foot__about">{t.a_body1.split('. ')[0]}.</p>
           </div>
           <div className="foot__cols">
             <div>
@@ -29,7 +46,7 @@ export function Footer() {
             <div>
               <h4>{t.foot_care}</h4>
               {t.po_tabs.map((p, i) => (
-                <Link key={p} to={`/care?tab=${i}`}>
+                <Link key={p} to={'/care?tab=' + i}>
                   {p}
                 </Link>
               ))}
@@ -47,12 +64,30 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="foot__huge" aria-hidden="true">
-          <Wordmark />
-        </div>
+      </div>
+
+      <div className="foot__huge" aria-hidden="true">
+        <motion.span
+          className="foot__word"
+          initial={{ y: '40%', opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1.4, ease: EASINGS.out }}
+        >
+          UNIQUE
+        </motion.span>
+        <span className="foot__sub">Watches &amp; Jewelry · Puerto Rico · USA</span>
+      </div>
+
+      <div className="wrap">
         <p className="foot__legal">{t.foot_legal}</p>
         <div className="foot__bottom">
-          <span>© {new Date().getFullYear()} UNIQUE Watches &amp; Jewelry · Puerto Rico, USA</span>
+          <span>© {new Date().getFullYear()} UNIQUE Watches &amp; Jewelry</span>
+          <span className="foot__pay">
+            {['Visa', 'Mastercard', 'Amex', 'Apple Pay', 'Affirm'].map((p) => (
+              <span key={p}>{p}</span>
+            ))}
+          </span>
           <span className="foot__links">
             <Link to="/care?tab=4">{t.foot_privacy}</Link>
             <Link to="/care?tab=1">{t.foot_terms}</Link>

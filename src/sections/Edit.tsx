@@ -171,7 +171,7 @@ export default function Edit() {
   const latest = WATCHES.slice(1, 5);
 
   return (
-    <section className="edit" id="collection">
+    <section className="edit t-white" id="collection">
       <div className="edit__head wrap">
         <div>
           <p className="eyebrow">{t.edit_eyebrow}</p>

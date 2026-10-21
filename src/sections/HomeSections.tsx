@@ -24,7 +24,7 @@ export function Marquee() {
   });
   const items = [...BRANDS, ...BRANDS];
   return (
-    <div className="marquee" aria-label={BRANDS.join(', ')}>
+    <div className="marquee t-ink" aria-label={BRANDS.join(', ')}>
       <motion.div className="marquee__row" style={{ x, skewX: skew }}>
         {[0, 1].map((k) => (
           <span key={k} className="marquee__set" aria-hidden="true">
@@ -65,7 +65,8 @@ function Par({ src, speed, className, alt = '' }: { src: string; speed: number; 
 export function Editorial() {
   const { t } = useStore();
   return (
-    <section className="editorial wrap">
+    <section className="t-forest">
+      <div className="editorial wrap">
       <div className="editorial__copy">
         <p className="eyebrow">{t.ed_eyebrow}</p>
         <RevealText tag="h2" className="h2 h2--xl" italicLast>
@@ -84,6 +85,7 @@ export function Editorial() {
         <Par src="/img/m/wrist-blue.webp" speed={60} className="p3" alt="Rolex Submariner on the wrist" />
         <Par src="/img/m/woman-cartier.webp" speed={110} className="p4" alt="Model wearing a Cartier watch" />
       </div>
+      </div>
     </section>
   );
 }
@@ -98,7 +100,7 @@ export function Standard() {
     { icon: 'lock', t: t.std_4t, d: t.std_4d },
   ];
   return (
-    <section className="standard">
+    <section className="standard t-mist">
       <div className="wrap">
         <div className="sec-head">
           <p className="eyebrow">{t.std_eyebrow}</p>
@@ -164,7 +166,8 @@ export function HowItWorks() {
     [t.how_4t, t.how_4d],
   ];
   return (
-    <section className="how wrap">
+    <section className="t-white">
+      <div className="how wrap">
       <div className="sec-head">
         <p className="eyebrow">{t.how_eyebrow}</p>
         <RevealText tag="h2" className="h2" italicLast>
@@ -186,6 +189,7 @@ export function HowItWorks() {
           </motion.div>
         ))}
       </div>
+      </div>
     </section>
   );
 }
@@ -198,8 +202,8 @@ export function SellCta() {
   const rot = useTransform(scrollYProgress, [0, 1], [-30, 25]);
   const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
   return (
-    <section ref={ref} className="sellcta">
-      <div className="sellcta__card wrap">
+    <section ref={ref} className="sellcta t-white">
+      <div className="sellcta__card wrap t-navy">
         <div className="sellcta__copy">
           <p className="eyebrow">{t.sell_eyebrow}</p>
           <RevealText tag="h2" className="h2" italicLast>
@@ -261,7 +265,7 @@ export function Faq() {
 export function Concierge() {
   const { t } = useStore();
   return (
-    <section className="concierge">
+    <section className="concierge t-ink">
       <div className="concierge__in wrap">
         <motion.img src="/img/monogram.webp" alt="" className="concierge__mono" initial={{ opacity: 0, scale: 0.8, rotate: -10 }} whileInView={{ opacity: 1, scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: EASINGS.out }} />
         <p className="eyebrow">{t.visit_eyebrow}</p>
