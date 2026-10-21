@@ -8,3 +8,4 @@ dist
 /unique_10_relojes_png
 /unique_6_modelos_individuales
 .claude
+*.tsbuildinfo
