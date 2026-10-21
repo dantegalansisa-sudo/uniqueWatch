@@ -1,0 +1,10 @@
+node_modules
+dist
+.vercel
+*.local
+# source/inspiration assets (optimized copies live in /public/img)
+/*.png
+/*.jpeg
+/unique_10_relojes_png
+/unique_6_modelos_individuales
+.claude
