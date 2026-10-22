@@ -5,7 +5,6 @@ import Lenis from 'lenis';
 import Header from './components/Header';
 import TabBar from './components/TabBar';
 import QuickView from './components/QuickView';
-import CustomCursor from './components/CustomCursor';
 import { CheckoutSheet, Footer, Preloader, Toast, WhatsAppFab } from './components/Chrome';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
@@ -48,7 +47,6 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <Preloader />
-      <CustomCursor />
       <Header />
       <AnimatePresence
         mode="wait"
